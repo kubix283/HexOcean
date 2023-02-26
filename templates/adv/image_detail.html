@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Hello {{user.username}} </h1>
+        <h1>{{image}}</h1>
+        <img src="{{image.image.url}}" alt="{{image}}">
+        {% if image.thumbnail_200 %}
+        <img src="{{image.thumbnail_200.url}}" alt="{{image}} 200">
+        {%endif%}
+        {% if image.thumbnail_400 %}
+        <img src="{{image.thumbnail_400.url}}" alt="{{image}} 400">
+        {%endif%}
+        <ul>
+            <li>Uploaded by: {{ image.user }}</li>
+            {% if image.expiring_links %}
+                <li>Expires at: {{ image.expiring_links }}</li>
+            {%endif%}
+            {% if image.link_to_original %}
+            <li><a href="{{image.link_to_original}}" target="_blank">Download original</a></li>
+            {%endif%}
+        </ul>
+    {% endif %}
+</body>
+</html>

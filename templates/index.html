@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{% url 'images'%}" class="nav-link active" aria-current="page">Images</a></li>
+        <li class="nav-item"><a href="{% url 'add_image'%}" class="nav-link">Add Image</a></li>
+        <li class="nav-item"><a href="{% url 'api'%}" class="nav-link">Api</a></li>
+        <li class="nav-item"><a href="{% url 'profile'%}" class="nav-link">Profile</a></li>
+
+      </ul>
+    </header>
+  </div>
+
+{% endblock content%}
+

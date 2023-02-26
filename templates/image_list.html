@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+    {% if user.is_authenticated %}
+        <h1> Hi {{ user.username }}</h1>
+        <h1>{{ user.profile.tier }}</h1>
+        {% for image in user_images %}
+            
+            {% if user.profile.tier == "basic" %}
+                <a href="{{image.thumbnail_200.url}}"><img src="{{image.thumbnail_200.url}}" alt="">200 px</a>
+
+            {%else%}
+                <a href="{{image.thumbnail_200.url}}"><img src="{{image.thumbnail_200.url}}" alt="">200 px</a>
+                <a href="{{ image.image.url }}">Original image</a>
+                <a href="{{image.thumbnail_400.url}}">400px</a>
+            {% endif%}
+        {% endfor%}
+    {% endif %}
+    
+</ul>
+{% endblock content %}
